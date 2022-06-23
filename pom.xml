@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+        <parent>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>2.7.0</version>
+            <relativePath/>
+        </parent>
     <groupId>org.nnn4eu.mssc</groupId>
     <artifactId>mssc-bom</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -24,9 +24,11 @@
         <maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
 
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <org.lombok.version>1.18.24</org.lombok.version>
+        <org.lombok.version>${lombok.version}</org.lombok.version>
         <lombok.mapstruct.binding.version>0.2.0</lombok.mapstruct.binding.version>
+        <org.ehcache.version>3.9.9</org.ehcache.version>
 
+        <springboot.version>2.7.0</springboot.version>
         <org.ehcache.version>3.9.9</org.ehcache.version>
         <awaitility.version>3.1.6</awaitility.version>
 
@@ -94,6 +96,14 @@
 
     <dependencyManagement>
         <dependencies>
+<!--            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.7.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
+
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
@@ -109,20 +119,23 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${springboot.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.cache</groupId>
                 <artifactId>cache-api</artifactId>
+                <version>${javax-cache.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
-                <version>3.9.9</version>
+                <version>${org.ehcache.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.restdocs</groupId>
                 <artifactId>spring-restdocs-mockmvc</artifactId>
                 <scope>test</scope>
+                <version>${spring-restdocs.version}</version>
             </dependency>
 
         </dependencies>
